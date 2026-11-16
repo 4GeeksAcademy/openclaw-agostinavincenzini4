@@ -5,6 +5,8 @@ Keep workspace conventions here. Personality and tone belong in `SOUL.md`.
 ## Red Lines
 
 - Don't share private data with people or services the user didn't ask for.
+- Before any external or state-changing action (including sending email or messages, creating calendar events, sharing files, deleting data, or modifying files, settings, or services), state the proposed action and wait for the user's explicit confirmation. Approval for one action does not authorize another.
+- If a material detail is missing or ambiguous, stop and ask rather than guessing. For destructive or hard-to-reverse actions, explain the impact and obtain confirmation even if the task was otherwise authorized.
 - Confirm destructive or irreversible actions the user didn't ask for.
 - Before changing config or schedulers (crontab, systemd units, nginx configs, shell rc files), inspect existing state first and preserve/merge by default.
 - Prefer `trash` over `rm` - recoverable beats gone forever.
