@@ -64,3 +64,10 @@ Responder en español, explicar vocabulario para una estudiante principiante de 
 ## Estructura de implementación
 
 Cada skill se implementará como una skill OpenClaw estándar en `skills/<nombre>/SKILL.md`, con metadatos `name` y `description`, pasos ejecutables, verificaciones y límites de seguridad. El documento de diseño se versiona primero, en un commit propio, antes de crear los archivos de implementación.
+
+## Resultados de implementación y pruebas
+
+- **Diseño versionado primero:** commit `8eb2a43` (`docs: design two personalized study skills`), anterior a la creación de cualquier `SKILL.md`.
+- **Skills implementadas:** `skills/plan-estudio-4geeks/SKILL.md` y `skills/traductor-tutor-tecnico/SKILL.md`. Ambas pasan `quick_validate.py`; `openclaw skills info --agent main ...` las marca como **Ready**, visibles para el modelo y disponibles como comando.
+- **Prueba real — plan de estudio:** se utilizó la consigna compartida por Agos sobre verificar un token y una sesión activa. La skill la convierte en pasos: aclarar criterios de validez del token, comprobar la sesión, cubrir casos válidos e inválidos con pruebas, e integrar/documentar según la consigna completa. La lectura de disponibilidad de Calendar verificó un compromiso el 17 de noviembre de 2026, 14:00–15:00 (`Europe/Madrid`), y ningún bloque ocupado el 18 de noviembre. También se buscaron eventos y no se hallaron el 18. No se creó evento alguno: todavía faltan una hora/duración elegidas por Agos y aprobación explícita de una propuesta concreta. Registro verificable de prueba: `.skill-validation/plan-estudio-calendar-test.json`.
+- **Prueba real — traducción y tutoría:** texto: “OpenClaw puede verificar que el token es válido y que la sesión está activa.” Traducción: “OpenClaw can verify that the token is valid and that the session is active.” Explicación: OpenClaw puede comprobar dos condiciones: que el token sea aceptado como válido y que la sesión asociada siga activa. “Token” es una credencial digital; “sesión activa” indica que el acceso continúa vigente. Registro de prueba: `.skill-validation/traductor-test.md`.

@@ -1,0 +1,22 @@
+{
+  "test": "plan-estudio-4geeks live calendar read, no write",
+  "source": "Agos task from conversation: verify that a token is valid and a session is active",
+  "timezone": "Europe/Madrid",
+  "calendar": "canitoy90@gmail.com",
+  "checks": [
+    {
+      "date": "2026-11-17",
+      "expected": "existing busy interval 14:00-15:00",
+      "observed": "busy interval 14:00-15:00 (+01:00)",
+      "verified": true
+    },
+    {
+      "date": "2026-11-18",
+      "expected": "no busy intervals",
+      "observed": "no busy intervals; event search also returned none",
+      "verified": true
+    }
+  ],
+  "writes": 0,
+  "notes": "Read-only Google Calendar calls through the connected Zapier integration. No study event was proposed or created; a write would require a separate explicit approval for an exact title, date, time, duration, and calendar."
+}
